@@ -6,11 +6,14 @@ import { Link } from "react-router-dom";
 import Moment from "react-moment";
 import NotFoundImage from "../../components/NotFoundImage";
 import Title from "../../components/Title";
+import CustomSpinner from "../../components/CustomSpinner";
 
 function Episodios() {
   const searchText = useRef({});
   const [data, setData] = useState(null);
   const [query, setQuery] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+
   let busqueda = {};
 
   useEffect(() => {
@@ -18,6 +21,7 @@ function Episodios() {
     const getData = async () => {
       const response = await getListEpisodes(query);
       setData(response);
+      setIsLoading(false);
     };
 
     getData().catch(console.error);
@@ -68,12 +72,14 @@ function Episodios() {
               Buscar
             </Button>
           </div>
-          <div>Episodios: <label className="h4">{data?.info.count || 0}</label> </div>
+          <div>
+            Episodios: <label className="h4">{data?.info.count || 0}</label>{" "}
+          </div>
         </div>
       </Row>
       <Row>
         <div className="d-flex flex-wrap justify-content-between">
-          {episodes ?? (<NotFoundImage />)}
+          {isLoading ? <CustomSpinner /> : episodes ?? <NotFoundImage />}
         </div>
       </Row>
     </Container>

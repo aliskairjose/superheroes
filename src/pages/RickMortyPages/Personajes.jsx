@@ -5,11 +5,13 @@ import { Button, Container, Form, Row } from "react-bootstrap";
 import Footer from "../../components/Footer";
 import NotFoundImage from "../../components/NotFoundImage";
 import Title from "../../components/Title";
+import CustomSpinner from "../../components/CustomSpinner";
 
 function Personajes() {
   const searchText = useRef({});
   const [data, setData] = useState(null);
   const [query, setQuery] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
 
   let busqueda = {};
   const genders = [
@@ -21,17 +23,18 @@ function Personajes() {
   ];
 
   const statuses = [
-    {value: '', title: 'Seleccione Estatus'},
-    {value: 'alive', title: 'Vivo'},
-    {value: 'dead', title: 'Muerto'},
-    {value: 'unknown', title: 'Desconocido'},
-  ]
+    { value: "", title: "Seleccione Estatus" },
+    { value: "alive", title: "Vivo" },
+    { value: "dead", title: "Muerto" },
+    { value: "unknown", title: "Desconocido" },
+  ];
 
   useEffect(() => {
     searchText.current = { ...query };
     const fetchData = async () => {
       const response = await getListCharacter(query);
       setData(response);
+      setIsLoading(false);
     };
 
     fetchData().catch(console.error);
@@ -67,7 +70,9 @@ function Personajes() {
               onChange={($event) => (busqueda.gender = $event.target.value)}
             >
               {genders.map((gender, index) => (
-                <option key={index} value={gender.value}>{gender.title}</option>
+                <option key={index} value={gender.value}>
+                  {gender.title}
+                </option>
               ))}
             </Form.Select>
             <Form.Select
@@ -75,19 +80,23 @@ function Personajes() {
               className="mx-2"
               onChange={($event) => (busqueda.status = $event.target.value)}
             >
-              {statuses.map((status, index)=> (
-                <option value={status.value} key={index}>{status.title}</option>
+              {statuses.map((status, index) => (
+                <option value={status.value} key={index}>
+                  {status.title}
+                </option>
               ))}
             </Form.Select>
             <Button variant="primary" onClick={search}>
               Buscar
             </Button>
           </div>
-          <div>Personajes: <label className="h4">{data?.info.count || 0}</label> </div>
+          <div>
+            Personajes: <label className="h4">{data?.info.count || 0}</label>{" "}
+          </div>
         </div>
       </Row>
       <Row className="justify-content-between">
-        {listaPersonajes ?? <NotFoundImage />}
+        {isLoading ? <CustomSpinner /> : listaPersonajes ?? <NotFoundImage />}
       </Row>
       <Footer copyright="by Axel Fuhrmann 2023" />
     </Container>

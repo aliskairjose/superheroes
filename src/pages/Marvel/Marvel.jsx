@@ -30,11 +30,7 @@ function Marvel() {
     <Container>
       <Title title="Marvel Characters" />
       <Row className="justify-content-between">
-        {isLoading ? (
-          <CustomSpinner />
-        ) : (
-          personajes ?? <NotFoundImage />
-        )}
+        {isLoading ? <CustomSpinner /> : personajes ?? <NotFoundImage />}
       </Row>
       <Footer copyright={response?.attributionText} />
     </Container>
