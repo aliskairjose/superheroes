@@ -4,6 +4,7 @@ import { getListEpisodes } from "../../services/rickMorty.service";
 import { Button, Card, Container, Form, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Moment from "react-moment";
+import NotFoundImage from "../../components/NotFoundImage";
 
 function Episodios() {
   const searchText = useRef({});
@@ -68,12 +69,12 @@ function Episodios() {
               Buscar
             </Button>
           </div>
-          <div>Personajes: {data?.info.count} </div>
+          <div>Episodios: {data?.info.count || 0} </div>
         </div>
       </Row>
       <Row>
         <div className="d-flex flex-wrap justify-content-between">
-          {episodes}
+          {episodes ?? (<NotFoundImage />)}
         </div>
       </Row>
     </Container>

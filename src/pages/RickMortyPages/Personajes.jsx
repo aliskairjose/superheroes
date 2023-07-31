@@ -3,6 +3,7 @@ import { getListCharacter } from "../../services/rickMorty.service";
 import RickMortyCard from "../../components/RickMortyCard";
 import { Button, Container, Form, Row } from "react-bootstrap";
 import Footer from "../../components/Footer";
+import NotFoundImage from "../../components/NotFoundImage";
 
 function Personajes() {
   const searchText = useRef({});
@@ -77,10 +78,10 @@ function Personajes() {
               Buscar
             </Button>
           </div>
-          <div>Personajes: {data?.info.count} </div>
+          <div>Personajes: {data?.info.count || 0} </div>
         </div>
       </Row>
-      <Row className="justify-content-between">{listaPersonajes}</Row>
+      <Row className="justify-content-between">{listaPersonajes??(<NotFoundImage />)}</Row>
       <Footer copyright="by Axel Fuhrmann 2023" />
     </Container>
   );

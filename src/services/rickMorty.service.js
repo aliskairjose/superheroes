@@ -19,7 +19,8 @@ export const getListCharacter = async ({
         status,
       },
     })
-    .then((response) => response.data);
+    .then((response) => response.data)
+    .catch(console.error);
 };
 
 export const getListEpisodes = async ({ query = "" }) => {
@@ -28,11 +29,12 @@ export const getListEpisodes = async ({ query = "" }) => {
     .get("episode", { params: { name: query } })
     .then((response) => response.data)
     .catch(console.error);
-    
+
   if (!response) {
     response = await instance
       .get("episode", { params: { episode: query } })
-      .then((response) => response.data);
+      .then((response) => response.data)
+      .catch(console.error);
   }
 
   return response;
