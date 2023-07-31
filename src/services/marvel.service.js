@@ -10,13 +10,13 @@ const instace = axios.create({
 });
 
 export const getMarvelCharacter = async () => {
-  const response = await instace.get('characters', {
+  return await instace.get("characters", {
     params: {},
-  });
-  return response.data.data;
+  }).then(response => response.data);
 };
 
 export const getCharacterDetail = async (id) => {
   const response = await instace.get(`characters/${id}`);
-  return response.data.data;
+  const { data } = response;
+  return data;
 };
