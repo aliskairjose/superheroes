@@ -9,9 +9,12 @@ const instace = axios.create({
   },
 });
 
-export const getMarvelCharacter = async () => {
+export const getMarvelCharacter = async ({limit = 20, offset = 0}) => {
   return await instace.get("characters", {
-    params: {},
+    params: {
+      limit, 
+      offset
+    },
   }).then(response => response.data);
 };
 

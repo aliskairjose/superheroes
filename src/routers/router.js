@@ -1,12 +1,12 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import NotFound from "../pages/NotFound";
 import Home from "../pages/Home";
-import Marvel from "../pages/Marvel";
 import Heroes from "../pages/Heroes";
-import MarvelDetail from "../pages/MarvelDetail";
 import Personajes from "../pages/RickMortyPages/Personajes";
 import Episodios from "../pages/RickMortyPages/Episodios";
 import Menu from "../components/Menu";
+import Marvel from "../pages/Marvel/Marvel";
+import MarvelDetail from "../pages/Marvel/MarvelDetail";
 const Router = () => (
   <BrowserRouter>
     <Routes>

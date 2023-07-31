@@ -1,6 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { getCharacterDetail } from '../services/marvel.service';
+import { getCharacterDetail } from '../../services/marvel.service';
 import { useState, useEffect } from 'react';
 
 function MarvelDetail() {

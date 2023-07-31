@@ -4,6 +4,7 @@ import RickMortyCard from "../../components/RickMortyCard";
 import { Button, Container, Form, Row } from "react-bootstrap";
 import Footer from "../../components/Footer";
 import NotFoundImage from "../../components/NotFoundImage";
+import Title from "../../components/Title";
 
 function Personajes() {
   const searchText = useRef({});
@@ -39,9 +40,7 @@ function Personajes() {
 
   return (
     <Container>
-      <Row className="text-center">
-        <h1 className="my-3">Rick & Morty Characters</h1>
-      </Row>
+      <Title title="Rick & Morty "/>
       <Row>
         <div className="d-flex justify-content-between align-items-center my-3">
           <div className="d-flex align-items-center">
