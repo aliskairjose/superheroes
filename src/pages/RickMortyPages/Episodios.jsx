@@ -60,7 +60,7 @@ function Episodios() {
             <Form.Control
               type="text"
               id="search"
-              placeholder="Ingrese nombre"
+              placeholder="Buscar..."
               aria-describedby="search"
               onChange={($event) => (busqueda.name = $event.target.value)}
             />
