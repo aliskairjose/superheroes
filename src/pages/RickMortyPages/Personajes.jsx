@@ -12,6 +12,20 @@ function Personajes() {
   const [query, setQuery] = useState({});
 
   let busqueda = {};
+  const genders = [
+    { value: "", title: "Seleccione género" },
+    { value: "male", title: "Masculino" },
+    { value: "female", title: "Femenino" },
+    { value: "genderless", title: "Sin género" },
+    { value: "unknown", title: "Desconocido" },
+  ];
+
+  const statuses = [
+    {value: '', title: 'Seleccione Estatus'},
+    {value: 'alive', title: 'Vivo'},
+    {value: 'dead', title: 'Muerto'},
+    {value: 'unknown', title: 'Desconocido'},
+  ]
 
   useEffect(() => {
     searchText.current = { ...query };
@@ -30,17 +44,13 @@ function Personajes() {
     setQuery(busqueda);
   };
 
-  // const onInputChange = (name) => (busqueda.name = name);
-  // const onGenderSelect = (gender) => (busqueda.gender = gender);
-  // const onStatusSelect = (status) => (busqueda.status = status);
-
   const listaPersonajes = data?.results?.map((personaje, index) => (
     <RickMortyCard key={index} personaje={personaje} />
   ));
 
   return (
     <Container>
-      <Title title="Rick & Morty "/>
+      <Title title="Rick & Morty " />
       <Row>
         <div className="d-flex justify-content-between align-items-center my-3">
           <div className="d-flex align-items-center">
@@ -54,33 +64,31 @@ function Personajes() {
             <Form.Select
               aria-label="Default select example"
               className="mx-2"
-              // onChange={($event) => onGenderSelect($event.target.value)}
               onChange={($event) => (busqueda.gender = $event.target.value)}
             >
-              <option value="">Seleccione Género</option>
-              <option value="male">Maculino</option>
-              <option value="female">Femenino</option>
-              <option value="genderless">Sin género</option>
-              <option value="unknown">Desconocido</option>
+              {genders.map((gender, index) => (
+                <option key={index} value={gender.value}>{gender.title}</option>
+              ))}
             </Form.Select>
             <Form.Select
               aria-label="Default select example"
               className="mx-2"
               onChange={($event) => (busqueda.status = $event.target.value)}
             >
-              <option value="">Seleccione Estatus</option>
-              <option value="alive">Vivo</option>
-              <option value="dead">Muerto</option>
-              <option value="unknown">Desconocido</option>
+              {statuses.map((status, index)=> (
+                <option value={status.value} key={index}>{status.title}</option>
+              ))}
             </Form.Select>
             <Button variant="primary" onClick={search}>
               Buscar
             </Button>
           </div>
-          <div>Personajes: {data?.info.count || 0} </div>
+          <div>Personajes: <label className="h4">{data?.info.count || 0}</label> </div>
         </div>
       </Row>
-      <Row className="justify-content-between">{listaPersonajes??(<NotFoundImage />)}</Row>
+      <Row className="justify-content-between">
+        {listaPersonajes ?? <NotFoundImage />}
+      </Row>
       <Footer copyright="by Axel Fuhrmann 2023" />
     </Container>
   );

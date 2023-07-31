@@ -68,7 +68,7 @@ function Episodios() {
               Buscar
             </Button>
           </div>
-          <div>Episodios: {data?.info.count || 0} </div>
+          <div>Episodios: <label className="h4">{data?.info.count || 0}</label> </div>
         </div>
       </Row>
       <Row>
