@@ -3,7 +3,7 @@ import { Button, Card, ListGroup } from "react-bootstrap";
 
 function RickMortyCard({ personaje }) {
   return (
-    <Card style={{ width: "18rem" }} className="mb-3 p-0">
+    <Card style={{ width: "19rem" }} className="mb-3 p-0">
       <Card.Img variant="top" src={personaje.image} />
       <Card.Body>
         <Card.Title>{personaje.name}</Card.Title>

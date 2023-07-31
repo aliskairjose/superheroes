@@ -39,7 +39,7 @@ function Personajes() {
   return (
     <Container>
       <Row className="text-center">
-        <h1 className="mt-2">Rick & Morty</h1>
+        <h1 className="my-3">Rick & Morty Characters</h1>
       </Row>
       <Row>
         <div className="d-flex justify-content-between align-items-center my-3">

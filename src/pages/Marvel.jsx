@@ -6,7 +6,7 @@ import MarverCard from "../components/MarverCard";
 import Footer from "../components/Footer";
 
 function Marvel() {
-  let cr = ''
+  let cr = "";
   const [response, setResponse] = useState(null);
 
   useEffect(() => {
@@ -21,13 +21,15 @@ function Marvel() {
 
   return (
     <Container>
-      <Row className="text-center mt-2"><h1>Marvel Characters</h1></Row>
+      <Row className="text-center my-2">
+        <h1>Marvel Characters</h1>
+      </Row>
       <Row className="justify-content-between">
         {response?.data.results.map((personaje, index) => (
           <MarverCard personaje={personaje} key={index} />
         ))}
       </Row>
-      <Footer copyright={response?.attributionText}/>
+      <Footer copyright={response?.attributionText} />
     </Container>
   );
 }

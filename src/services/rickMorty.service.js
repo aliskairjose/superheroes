@@ -15,3 +15,8 @@ export const getListCharacter = async ({page = 1, name = '', gender = '', status
   }).then(response => response.data)
  
 }
+
+export const getListEpisodes = async () => {
+  return await instance.get('episode').then(response => response.data)
+ 
+}
