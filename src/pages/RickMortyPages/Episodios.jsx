@@ -62,7 +62,7 @@ function Episodios() {
               id="search"
               placeholder="Buscar..."
               aria-describedby="search"
-              onChange={($event) => (busqueda.name = $event.target.value)}
+              onChange={($event) => (busqueda.query = $event.target.value)}
             />
             <Button variant="primary" onClick={search} className="mx-2">
               Buscar

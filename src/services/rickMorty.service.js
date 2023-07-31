@@ -22,10 +22,18 @@ export const getListCharacter = async ({
     .then((response) => response.data);
 };
 
-export const getListEpisodes = async ({ name = "" }) => {
-  return await instance
-    .get("episode", {
-      params: { name },
-    })
-    .then((response) => response.data);
+export const getListEpisodes = async ({ query = "" }) => {
+  let response = null;
+  response = await instance
+    .get("episode", { params: { name: query } })
+    .then((response) => response.data)
+    .catch(console.error);
+    
+  if (!response) {
+    response = await instance
+      .get("episode", { params: { episode: query } })
+      .then((response) => response.data);
+  }
+
+  return response;
 };
