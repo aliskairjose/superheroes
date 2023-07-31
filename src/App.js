@@ -8,21 +8,10 @@ import { Col, Container, Row } from 'react-bootstrap';
 function App() {
   return (
     <Container>
-      <Row>
-        <Col>
-          <Menu />
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <Router />
-        </Col>
-      </Row>
+      <Row> 
+        <Router></Router>
+    </Row>
     </Container>
-  //  <>
-  //  <Menu />
-  //  <Router />
-  //  </>
   );
 }
 
