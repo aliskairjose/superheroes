@@ -1,22 +1,32 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { getListEpisodes } from "../../services/rickMorty.service";
-import { Card, Container, Row } from "react-bootstrap";
+import { Button, Card, Container, Form, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Moment from "react-moment";
 
 function Episodios() {
+  const searchText = useRef({});
   const [data, setData] = useState(null);
+  const [query, setQuery] = useState({});
+  let busqueda = {};
 
   useEffect(() => {
+    searchText.current = { ...query };
     const getData = async () => {
-      const response = await getListEpisodes();
-      console.log(response);
+      const response = await getListEpisodes(query);
       setData(response);
     };
 
     getData().catch(console.error);
-  }, []);
+  }, [query]);
+
+  const search = () => {
+    Object.entries(searchText.current).length !== 0 &&
+      (busqueda = { ...searchText.current, ...busqueda });
+
+    setQuery(busqueda);
+  };
 
   // Listado de episodios
   const episodes = data?.results.map((episode, index) => (
@@ -28,7 +38,6 @@ function Episodios() {
         </Card.Subtitle>
         <Card.Text>
           <p>
-            {" "}
             Transmitido: {episode.air_date} <br />
             Creado el: <Moment format="LL">{episode.created}</Moment>
           </p>
@@ -44,6 +53,23 @@ function Episodios() {
     <Container>
       <Row className="text-center">
         <h1 className="my-3">Rick & Morty Episodes</h1>
+      </Row>
+      <Row>
+        <div className="d-flex justify-content-between align-items-center my-3">
+          <div className="d-flex align-items-center">
+            <Form.Control
+              type="text"
+              id="search"
+              placeholder="Ingrese nombre"
+              aria-describedby="search"
+              onChange={($event) => (busqueda.name = $event.target.value)}
+            />
+            <Button variant="primary" onClick={search} className="mx-2">
+              Buscar
+            </Button>
+          </div>
+          <div>Personajes: {data?.info.count} </div>
+        </div>
       </Row>
       <Row>
         <div className="d-flex flex-wrap justify-content-between">
