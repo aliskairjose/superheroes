@@ -27,3 +27,17 @@ export const getCharacterDetail = async (id) => {
     .then((response) => response.data)
     .catch(console.error);
 };
+
+export const getComicList = async () => {
+  return await instace
+    .get(`comics`)
+    .then((response) => response.data)
+    .catch(console.error);
+};
+
+export const getComicDetail = async (id) => {
+  return await instace
+    .get(`comics/${id}`)
+    .then((response) => response.data)
+    .catch(console.error);
+};

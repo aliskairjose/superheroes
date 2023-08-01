@@ -1,7 +1,7 @@
 import React from "react";
 import { getMarvelCharacter } from "../../services/marvel.service";
 import { useEffect, useState } from "react";
-import { Container, Row, Spinner } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import MarverCard from "../../components/MarverCard";
 import Footer from "../../components/Footer";
 import NotFoundImage from "../../components/NotFoundImage";

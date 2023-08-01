@@ -23,9 +23,14 @@ function Menu() {
                 <Nav.Link as={Link} to="/">
                   Home
                 </Nav.Link>
-                <Nav.Link as={Link} to="marvel">
-                  Marvel
-                </Nav.Link>
+                <NavDropdown title="Marvel" id="basic-nav-dropdown">
+                  <NavDropdown.Item as={Link} to="marvel/personajes">
+                    Personajes
+                  </NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="marvel/comics">
+                    Comics
+                  </NavDropdown.Item>
+                </NavDropdown>
                 <Nav.Link as={Link} to="heroes">
                   Heroes
                 </Nav.Link>

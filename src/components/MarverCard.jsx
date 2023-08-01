@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, ListGroup } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import { useNavigate } from 'react-router-dom';
 
 function MarverCard({ personaje }) {
@@ -10,7 +10,7 @@ function MarverCard({ personaje }) {
   const goDetail = () => navigate(`./${personaje.id}`);
 
   return (
-    <Card style={{ width: "19rem" }} className="mb-3 p-0" onClick={goDetail}>
+    <Card style={{ width: "19rem", cursor: 'pointer' }} className="mb-3 p-0" onClick={goDetail}>
       <Card.Img variant="top" src={image} />
       <Card.Body>
         <Card.Title>{personaje.name}</Card.Title>
