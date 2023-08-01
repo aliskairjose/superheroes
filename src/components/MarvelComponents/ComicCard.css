@@ -1,0 +1,11 @@
+.comic-card-container {
+  border: 1px solid lightgray;
+  width: 30rem !important;
+  max-height: 12rem;
+  margin: 0.7rem 0;
+  cursor: pointer;
+}
+
+.comic-card-container p {
+  margin-bottom: 3px;
+}

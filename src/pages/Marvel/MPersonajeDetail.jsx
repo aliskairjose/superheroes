@@ -2,12 +2,12 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { getCharacterDetail } from "../../services/marvel.service";
 import { useState, useEffect } from "react";
-import { Badge, Col, Container, Image, ListGroup, Row } from "react-bootstrap";
+import { Badge, Col, Container, Image, Row } from "react-bootstrap";
 import Footer from "../../components/Footer";
 import CustomSpinner from "../../components/CustomSpinner";
 import Moment from "react-moment";
 
-function PersonajeDetail() {
+function MPersonajeDetail() {
   const { id } = useParams();
   const [response, setResponse] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -51,6 +51,8 @@ function PersonajeDetail() {
                 <li>Stories: <Badge bg="danger">{personaje.stories.available}</Badge> </li>
                 <li>Events: <Badge bg="warning">{personaje.events.available}</Badge></li>
               </ul>
+
+              <h4 className="mt-2">Enlaces</h4>
               {personaje.urls.map((p, index)=>(
                 <Link to={p.url} key={index} className="mx-2 text-capitalize"> {p.type} </Link>
               ))}
@@ -63,4 +65,4 @@ function PersonajeDetail() {
   );
 }
 
-export default PersonajeDetail;
+export default MPersonajeDetail;

@@ -4,7 +4,7 @@ const instance = axios.create({
   baseURL: "https://rickandmortyapi.com/api/",
 });
 
-export const getListCharacter = async ({
+export const getList = async ({
   page = 1,
   name = "",
   gender = "",
@@ -22,6 +22,12 @@ export const getListCharacter = async ({
     .then((response) => response.data)
     .catch(console.error);
 };
+
+export const getById = async (id) =>{
+  return await instance.get(`character/${id}`)
+  .then(response => response.data)
+  .catch(console.error)
+}
 
 export const getListEpisodes = async ({ query = "" }) => {
   let response = null;

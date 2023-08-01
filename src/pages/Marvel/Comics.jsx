@@ -6,6 +6,7 @@ import Title from '../../components/Title';
 import CustomSpinner from '../../components/CustomSpinner';
 import NotFoundImage from '../../components/NotFoundImage';
 import Footer from '../../components/Footer';
+import ComicCard from '../../components/MarvelComponents/ComicCard';
 
 function Comics() {
   const [response, setResponse] = useState(null);
@@ -20,7 +21,7 @@ function Comics() {
     getData().catch(console.error)
   }, [])
 
-  const comics = response?.data.results.map((comic, index) => <li key={index}>{comic.id}</li>) 
+  const comics = response?.data.results.map((comic, index) => <ComicCard comic={comic} key={index} />) 
 
   return (
     <Container>

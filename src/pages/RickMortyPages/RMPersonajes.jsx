@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { getListCharacter } from "../../services/rickMorty.service";
+import { getList } from "../../services/rickMorty.service";
 import RickMortyCard from "../../components/RickMortyCard";
 import { Button, Container, Form, Row } from "react-bootstrap";
 import Footer from "../../components/Footer";
@@ -7,7 +7,7 @@ import NotFoundImage from "../../components/NotFoundImage";
 import Title from "../../components/Title";
 import CustomSpinner from "../../components/CustomSpinner";
 
-function Personajes() {
+function RMPersonajes() {
   const searchText = useRef({});
   const [data, setData] = useState(null);
   const [query, setQuery] = useState({});
@@ -32,7 +32,7 @@ function Personajes() {
   useEffect(() => {
     searchText.current = { ...query };
     const fetchData = async () => {
-      const response = await getListCharacter(query);
+      const response = await getList(query);
       setData(response);
       setIsLoading(false);
     };
@@ -103,4 +103,4 @@ function Personajes() {
   );
 }
 
-export default Personajes;
+export default RMPersonajes;

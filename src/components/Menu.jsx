@@ -47,7 +47,7 @@ function Menu() {
           </Container>
         </Navbar>
       </Row>
-      <Row>
+      <Row className="py-4">
         <section>
           <Outlet></Outlet>
         </section>

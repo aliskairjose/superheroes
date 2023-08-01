@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import { getComicDetail } from '../../services/marvel.service';
+import { Col, Container, Image, Row } from 'react-bootstrap';
 
 function ComicDetail() {
   const { id } = useParams();
@@ -20,7 +21,17 @@ function ComicDetail() {
   
 
   return (
-    <div>ComicDetail</div>
+    <Container>
+      <Row>
+        <Col sm={4}>
+          <Image src={image} alt={comic?.title} className='rounded w-100' />
+        </Col>
+        <Col sm={6}>
+          <h2 className='text-muted'>{comic?.title}</h2>
+          <p>{comic?.description}</p>
+        </Col>
+      </Row>
+    </Container>
   )
 }
 
