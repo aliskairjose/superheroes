@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { getList } from "../../services/rickMorty.service";
-import RickMortyCard from "../../components/RickMortyCard";
+import RickMortyCard from "../../components/RMComponents/RickMortyCard";
 import { Button, Container, Form, Row } from "react-bootstrap";
 import Footer from "../../components/Footer";
 import NotFoundImage from "../../components/NotFoundImage";
@@ -10,7 +10,7 @@ import CustomSpinner from "../../components/CustomSpinner";
 function RMPersonajes() {
   const searchText = useRef({});
   const [data, setData] = useState(null);
-  const [query, setQuery] = useState({});
+  const [query, setQuery] = useState(searchText.current);
   const [isLoading, setIsLoading] = useState(true);
 
   let busqueda = {};
@@ -53,7 +53,7 @@ function RMPersonajes() {
 
   return (
     <Container>
-      <Title title="Rick & Morty " />
+      <Title title="Personajes" />
       <Row>
         <div className="d-flex justify-content-between align-items-center my-3">
           <div className="d-flex align-items-center">

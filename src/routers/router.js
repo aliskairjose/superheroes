@@ -10,12 +10,14 @@ import MPersonajeDetail from "../pages/Marvel/MPersonajeDetail";
 import ComicDetail from "../pages/Marvel/ComicDetail";
 import RMPersonajeDetail from "../pages/RickMortyPages/RMPersonajeDetail";
 import RMPersonajes from "../pages/RickMortyPages/RMPersonajes";
+import RMLocation from "../pages/RickMortyPages/RMLocation";
 const Router = () => (
   
     <Routes>
       <Route path="/" element={ <Menu/> }>
         <Route exact path="/" element={ <Home/>} />
         <Route exact path="/home" element={ <Home/> } />
+        <Route exact path="rickmorty/locations" element={ <RMLocation/>} />
         <Route exact path="rickmorty/personajes" element={ <RMPersonajes/>} />
         <Route exact path="rickmorty/personajes/:id" element={ <RMPersonajeDetail/>} />
         <Route exact path="rickmorty/episodes" element={ <Episodios/>} />

@@ -41,6 +41,9 @@ function Menu() {
                   <NavDropdown.Item as={Link} to="rickMorty/episodes">
                     Episodios
                   </NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="rickMorty/locations">
+                    Ubicaciones
+                  </NavDropdown.Item>
                 </NavDropdown>
               </Nav>
             </Navbar.Collapse>

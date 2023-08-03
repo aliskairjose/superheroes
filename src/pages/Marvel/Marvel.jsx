@@ -2,12 +2,12 @@ import React, { useRef } from "react";
 import { getMarvelCharacter } from "../../services/marvel.service";
 import { useEffect, useState } from "react";
 import { Container, Row } from "react-bootstrap";
-import MarverCard from "../../components/MarverCard";
 import Footer from "../../components/Footer";
 import NotFoundImage from "../../components/NotFoundImage";
 import Title from "../../components/Title";
 import CustomSpinner from "../../components/CustomSpinner";
 import CustomPagination from "../../components/CustomPagination";
+import MarverCard from "../../components/MarvelComponents/MarverCard";
 
 function Marvel() {
   const OFFSET = 20;
@@ -32,12 +32,15 @@ function Marvel() {
   ));
 
   const handleAction = (e) => {
+    // const pageCount = Math.ceil(response.total / response.limit);
+    // console.log(pageCount)
     e === "prev"
       ? (_params.offset = OFFSET - params.offset)
       : (_params.offset = OFFSET + params.offset);
     setIsLoading(true);
     setParams(_params);
   };
+
 
   return (
     <Container>

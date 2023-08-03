@@ -23,11 +23,12 @@ export const getList = async ({
     .catch(console.error);
 };
 
-export const getById = async (id) =>{
-  return await instance.get(`character/${id}`)
-  .then(response => response.data)
-  .catch(console.error)
-}
+export const getById = async (id) => {
+  return await instance
+    .get(`character/${id}`)
+    .then((response) => response.data)
+    .catch(console.error);
+};
 
 export const getListEpisodes = async ({ query = "" }) => {
   let response = null;
@@ -44,4 +45,11 @@ export const getListEpisodes = async ({ query = "" }) => {
   }
 
   return response;
+};
+export const getLocations = async (params = {}) => {
+  console.log(params)
+  return await instance
+    .get("location", { params })
+    .then((response) => response.data)
+    .catch(console.error);
 };
