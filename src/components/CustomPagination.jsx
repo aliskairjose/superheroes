@@ -14,7 +14,7 @@ function CustomPagination({ onPreNextPage }) {
   const handleAction = (e, type) => {
     e.preventDefault()
     type === "next" ? active.current++ : active.current--;
-    onPreNextPage()
+    onPreNextPage(type)
   };
 
   for (let number = 1; number <= 5; number++) {
