@@ -22,7 +22,7 @@ function MPersonajeDetail() {
     fetchData().catch(console.error);
   }, []);
 
-  const personaje = response?.data.results[0];
+  const personaje = response;
   const image = `${personaje?.thumbnail?.path}.${personaje?.thumbnail?.extension}`;
 
   return (
@@ -58,7 +58,7 @@ function MPersonajeDetail() {
               ))}
             </Col>
           </Row>
-          <Footer copyright={response?.attributionText} />
+          <Footer copyright='Data provided by Marvel. © 2023 MARVEL"' />
         </Container>
       )}
     </>

@@ -14,7 +14,7 @@ function MarverCard({ personaje }) {
       <Card.Img variant="top" src={image} />
       <Card.Body>
         <Card.Title>{personaje.name}</Card.Title>
-        <Card.Text>{personaje.description}</Card.Text>
+        {/* <Card.Text>{personaje.description}</Card.Text> */}
         {/* <Button variant="primary">Go somewhere</Button> */}
       </Card.Body>
     </Card>

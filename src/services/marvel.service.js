@@ -9,29 +9,28 @@ const instace = axios.create({
   },
 });
 
-export const getMarvelCharacter = async ({ limit = 20, offset = 0 }) => {
+export const getMarvelCharacter = async (params = {}) => {
   return await instace
     .get("characters", {
-      params: {
-        limit,
-        offset,
-      },
+      params,
     })
-    .then((response) => response.data)
+    .then((response) => response.data.data)
     .catch(console.error);
 };
 
 export const getCharacterDetail = async (id) => {
   return await instace
     .get(`characters/${id}`)
-    .then((response) => response.data)
+    .then((response) => response.data.data.results[0])
     .catch(console.error);
 };
 
-export const getComicList = async () => {
+export const getComicList = async (params = {}) => {
   return await instace
-    .get(`comics`)
-    .then((response) => response.data)
+    .get(`comics`,{
+      params,
+    })
+    .then((response) => response.data.data)
     .catch(console.error);
 };
 

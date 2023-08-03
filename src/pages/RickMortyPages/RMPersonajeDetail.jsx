@@ -34,7 +34,7 @@ function RMPersonajeDetail() {
                 src={data?.image}
                 alt={data?.name}
                 rounded
-                className="w-100"
+                className="w-100 shadow-sm"
               />
             </Col>
             <Col sm={6}>
