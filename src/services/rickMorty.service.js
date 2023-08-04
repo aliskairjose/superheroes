@@ -2,6 +2,7 @@ import axios from "axios";
 
 const instance = axios.create({
   baseURL: "https://rickandmortyapi.com/api/",
+  responseType: 'json'
 });
 
 export const getList = async ({
@@ -47,7 +48,7 @@ export const getListEpisodes = async ({ query = "" }) => {
   return response;
 };
 export const getLocations = async (params = {}) => {
-  console.log(params)
+  console.log(params);
   return await instance
     .get("location", { params })
     .then((response) => response.data)

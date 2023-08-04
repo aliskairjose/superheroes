@@ -91,7 +91,7 @@ function RMPersonajes() {
             </Button>
           </div>
           <div>
-            Personajes: <label className="h4">{data?.info.count || 0}</label>{" "}
+            Personajes: <label className="h4">{data?.info?.count || 0}</label>{" "}
           </div>
         </div>
       </Row>

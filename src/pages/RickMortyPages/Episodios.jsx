@@ -7,6 +7,7 @@ import Moment from "react-moment";
 import NotFoundImage from "../../components/NotFoundImage";
 import Title from "../../components/Title";
 import CustomSpinner from "../../components/CustomSpinner";
+import Footer from "../../components/Footer";
 
 function Episodios() {
   const searchText = useRef({});
@@ -82,6 +83,8 @@ function Episodios() {
           {isLoading ? <CustomSpinner /> : episodes ?? <NotFoundImage />}
         </div>
       </Row>
+      <Footer copyright="by Axel Fuhrmann 2023" />
+
     </Container>
   );
 }

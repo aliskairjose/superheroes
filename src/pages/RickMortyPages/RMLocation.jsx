@@ -4,6 +4,7 @@ import { Button, Card, Container, Form, Row } from "react-bootstrap";
 import Title from "../../components/Title";
 import CustomSpinner from "../../components/CustomSpinner";
 import NotFoundImage from "../../components/NotFoundImage";
+import Footer from "../../components/Footer";
 
 function RMLocation() {
 
@@ -74,6 +75,7 @@ function RMLocation() {
           {isLoading ? <CustomSpinner /> : locations ?? <NotFoundImage />}
         </div>
       </Row>
+      <Footer copyright="by Axel Fuhrmann 2023" />
     </Container>
   )
 }
