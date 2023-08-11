@@ -1,8 +1,16 @@
 import React from 'react'
+import { Container, Row } from 'react-bootstrap'
+import { Outlet } from 'react-router-dom'
 
 function Admin() {
   return (
-    <div>Admin</div>
+    <Container>
+       <Row>
+        <section>
+          <Outlet></Outlet>
+        </section>
+      </Row>
+    </Container>
   )
 }
 

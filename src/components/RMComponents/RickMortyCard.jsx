@@ -1,27 +1,31 @@
 import React from "react";
-import { Card } from "react-bootstrap";
-import { useNavigate } from 'react-router-dom';
+import "./RickMortyCard.css";
 
 function RickMortyCard({ personaje }) {
-  const navigate = useNavigate();
-
-  const goDetail = () => navigate(`./${personaje.id}`);
-
   return (
-    <Card style={{ width: "19rem" }} className="mb-3 p-0" onClick={goDetail}>
-      <Card.Img variant="top" src={personaje.image} />
-      <Card.Body>
-        <Card.Title>{personaje.name}</Card.Title>
-        <Card.Text>
-        {personaje.status} - {personaje.species} - {personaje.gender}
-        </Card.Text>
-      </Card.Body>
-      {/* <ListGroup className="list-group-flush">
-        <ListGroup.Item>Origen: {personaje.origin.name}</ListGroup.Item>
-        <ListGroup.Item>Ubicación: {personaje.location.name}</ListGroup.Item>
-        <ListGroup.Item>Episodios: {personaje.episode.length}</ListGroup.Item>
-      </ListGroup> */}
-    </Card>
+    <>
+      <article className="rm-card">
+        <div className="left-container">
+          <img src={personaje.image} alt={personaje.name} rounded />
+        </div>
+        <div className="rigth-container">
+          <div className="section">
+            <h2 className="text-white m-0 p-0">{personaje.name}</h2>
+            <span className="status">
+              {personaje.status} - {personaje.species}
+            </span>
+          </div>
+          <div className="section">
+            <p className="m-0 text-secondary">Última ubicación conocida</p>
+            <span>{personaje.location.name}</span>
+          </div>
+          <div className="section">
+          <p className="m-0 text-secondary">Origen</p>
+            <span>{personaje.origin.name}</span>
+          </div>
+        </div>
+      </article>
+    </>
   );
 }
 

@@ -5,36 +5,45 @@ import Title from "../../components/Title";
 import Footer from "../../components/Footer";
 import CustomSpinner from "../../components/CustomSpinner";
 import NotFoundImage from "../../components/NotFoundImage";
+import { SuperHeroCard } from "../../components/SuperHeroes/SuperHeroCard";
+
 function SuperHero() {
-  let name = '';
-  const params = useRef({})
+  let name = "";
+  const params = useRef({});
   const [data, setData] = useState(null);
   const [query, setQuery] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
     const getData = async () => {
-      console.log(query)
-      if(query) {
-        params.current = query
+      if (query) {
+        params.current = query;
+       try {
         const data = await getSuperHero(params.current);
         setIsLoading(false);
         setData(data);
+      } catch (error) { 
+        setIsLoading(false);
+        setData(null);
+      }
+    } else {
+      setIsLoading(false);
+      setData(null);
       }
     };
 
     getData().catch(console.error);
   }, [query]);
 
-  const superhero = data?.map((hero, index) => (
-    <Card style={{ width: "18rem" }} key={index}>
-      <Card.Img variant="top" src={hero.image.url} />
-      <Card.Body>
-        <Card.Title>{hero.name}</Card.Title>
-      </Card.Body>
-    </Card>
-  ));
+  const superhero = data ? data.map((hero, index) => (
+    <SuperHeroCard hero={hero} key={index} />
+  )) : (data===null ? 'Buscar': <NotFoundImage />);
 
-  const search = () =>  setQuery(name)
+  const search = () => {
+    setIsLoading(true);
+    setQuery(name);
+  };
+
 
   return (
     <Container>
@@ -53,10 +62,13 @@ function SuperHero() {
               Buscar
             </Button>
           </div>
+          <div className="text-end mb-2">
+            Total: <label className="h4">{data?.length || 0}</label>
+          </div>
         </div>
       </Row>
-      <Row>
-        {isLoading ? <CustomSpinner /> : superhero}
+      <Row className="justify-content-evenly">
+        {isLoading ? <CustomSpinner /> : superhero }
       </Row>
       <Footer copyright="by Axel Fuhrmann 2023" />
     </Container>

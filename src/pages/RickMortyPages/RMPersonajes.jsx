@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { getList } from "../../services/rickMorty.service";
 import RickMortyCard from "../../components/RMComponents/RickMortyCard";
-import { Button, Container, Form, Row } from "react-bootstrap";
+import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import Footer from "../../components/Footer";
 import NotFoundImage from "../../components/NotFoundImage";
 import Title from "../../components/Title";
@@ -95,8 +95,10 @@ function RMPersonajes() {
           </div>
         </div>
       </Row>
-      <Row className="justify-content-between">
-        {isLoading ? <CustomSpinner /> : listaPersonajes ?? <NotFoundImage />}
+      <Row>
+        <Col className="d-flex flex-wrap">
+          {isLoading ? <CustomSpinner /> : listaPersonajes ?? <NotFoundImage />}
+        </Col>
       </Row>
       <Footer copyright="by Axel Fuhrmann 2023" />
     </Container>

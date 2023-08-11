@@ -44,7 +44,7 @@ function Comics() {
       <div className="text-end mb-2">
         Comics: <label className="h4">{response?.total || 0}</label>
       </div>
-      <Row className="justify-content-between">
+      <Row className="justify-content-evenly">
         {isLoading ? <CustomSpinner /> : comics ?? <NotFoundImage />}
       </Row>
       <CustomPagination onPreNextPage={handleAction} />

@@ -10,12 +10,10 @@ function MarverCard({ personaje }) {
   const goDetail = () => navigate(`./${personaje.id}`);
 
   return (
-    <Card style={{ width: "19rem", cursor: 'pointer' }} className="mb-3 p-0" onClick={goDetail}>
+    <Card style={{ width: "19rem", cursor: 'pointer' }} className="mb-3 p-0 shadow-sm border-1 border-secondary" onClick={goDetail}>
       <Card.Img variant="top" src={image} />
       <Card.Body>
-        <Card.Title>{personaje.name}</Card.Title>
-        {/* <Card.Text>{personaje.description}</Card.Text> */}
-        {/* <Button variant="primary">Go somewhere</Button> */}
+        <Card.Title className="text-center">{personaje.name}</Card.Title>
       </Card.Body>
     </Card>
   );

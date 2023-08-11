@@ -14,13 +14,13 @@ function Menu() {
       <Row>
         <Navbar expand="lg" className="bg-body-tertiary">
           <Container>
-            <Navbar.Brand as={Link} to="/">
+            <Navbar.Brand as={Link} to="home">
               React-SuperHeroes
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto">
-                <Nav.Link as={Link} to="/">
+                <Nav.Link as={Link} to="home">
                   Home
                 </Nav.Link>
                 <NavDropdown title="Marvel" id="basic-nav-dropdown">
