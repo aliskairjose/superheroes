@@ -27,14 +27,22 @@ ChartJS.register(
   Legend
 );
 export const SuperHeroeDetail = () => {
+  const POWERSTATS = {
+    combat: 'Combate',
+    durability: 'Durabilidad',
+    intelligence: 'Inteligencia',
+    power: 'Poder',
+    speed: 'Velocidad',
+    strength : 'Fortaleza',
+  }
   const data = {
     labels: [],
     datasets: [
       {
         label: 'Powerstats',
         data: [],
-        backgroundColor: 'rgba(255, 99, 132, 0.2)',
-        borderColor: 'rgba(255, 99, 132, 1)',
+        backgroundColor: 'rgba(51, 113, 255, 0.3)',
+        borderColor: 'rgba(51, 113, 255, 1)',
         borderWidth: 1,
       },
     ],
@@ -56,7 +64,7 @@ export const SuperHeroeDetail = () => {
   }, []);
 
   const getPowers = async(powers) => {
-    const labels = Object.keys(powers).map(k => k.toUpperCase())
+    const labels = Object.keys(powers).map(k => POWERSTATS[k])
     const values = Object.values(powers)
     data.labels = labels
     data.datasets[0].data = values
@@ -75,7 +83,7 @@ export const SuperHeroeDetail = () => {
                 src={heroe?.image.url}
                 alt={heroe?.name}
                 rounded
-                className="w-100 shadow border border-3 border-primary"
+                className="w-100 shadow border border-2 border-secondary"
               />
               <span className="fs-5 text-muted"></span>
             </Col>

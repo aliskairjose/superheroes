@@ -37,7 +37,7 @@ function Episodios() {
 
   // Listado de episodios
   const episodes = data?.results.map((episode, index) => (
-    <Card style={{ width: "25rem" }} className="mb-3" key={index}>
+    <Card style={{ width: "25rem" }} className="mb-3 border-secondary shadow-sm" key={index}>
       <Card.Body>
         <Card.Title>{episode.name}</Card.Title>
         <Card.Subtitle className="mb-2 text-muted">

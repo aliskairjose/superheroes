@@ -20,15 +20,15 @@ function SuperHero() {
         params.current = query;
        try {
         const data = await getSuperHero(params.current);
-        setIsLoading(false);
         setData(data);
-      } catch (error) { 
         setIsLoading(false);
+      } catch (error) { 
         setData(null);
+        setIsLoading(false);
       }
     } else {
-      setIsLoading(false);
       setData(null);
+      setIsLoading(false);
       }
     };
 

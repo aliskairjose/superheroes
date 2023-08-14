@@ -35,7 +35,7 @@ function RMLocation() {
   };
 
   const locations = data?.results.map((location, index)=>(
-    <Card style={{ width: "25rem" }} className="mb-3 p-0 shadow-sm" key={index}>
+    <Card style={{ width: "25rem" }} className="mb-3 p-0 shadow-sm border-info" key={index}>
     <Card.Body>
       <Card.Title>{location.name}</Card.Title>
       <Card.Subtitle className="mb-2 text-muted">Dimensión: {location.dimension}</Card.Subtitle>

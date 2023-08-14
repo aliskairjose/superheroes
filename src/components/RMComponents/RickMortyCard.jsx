@@ -4,7 +4,7 @@ import "./RickMortyCard.css";
 function RickMortyCard({ personaje }) {
   return (
     <>
-      <article className="rm-card">
+      <article className="rm-card rounded shadow-sm">
         <div className="left-container">
           <img src={personaje.image} alt={personaje.name} rounded />
         </div>
